@@ -69,7 +69,7 @@ static err_t client_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t 
         cJSON *bpm = cJSON_GetObjectItemCaseSensitive(last_entry, "bpm");
         if (cJSON_IsNumber(bpm)) {
             printf("Último BPM: %d\n", bpm->valueint);
-            gpio_put(led_pin_red, bpm->valueint > 120);
+            gpio_put(led_pin_red, bpm->valueint > 60);
         }
     }
 
@@ -77,8 +77,6 @@ static err_t client_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t 
     pbuf_free(p);
     return ERR_OK;
 }
-
-
 
 
 static err_t client_connected(void *arg, struct tcp_pcb *tpcb, err_t err) {
@@ -143,9 +141,9 @@ int main() {
     // Loop principal
     while (true) {
         
-        gpio_put(led_pin_red, true);
+        gpio_put(led_pin_green, true);
         sleep_ms(200);
-        gpio_put(led_pin_red, false);
+        gpio_put(led_pin_green, false);
         sleep_ms(200);
 
          // Faz a requisição à API Flask a cada 15 segundos
