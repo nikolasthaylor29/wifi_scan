@@ -77,7 +77,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(wifi_scan wifi_scan.c )
+add_executable(wifi_scan wifi_scan.c cJSON.c)
 
 pico_set_program_name(wifi_scan "wifi_scan")
 pico_set_program_version(wifi_scan "0.1")
