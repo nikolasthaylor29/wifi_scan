@@ -92,6 +92,10 @@ target_link_libraries(wifi_scan
         hardware_gpio
         hardware_adc
         pico_cyw43_arch_lwip_threadsafe_background
+        hardware_pwm
+        hardware_adc
+        hardware_pio
+        hardware_i2c
 )
 
 # Add the standard include files to the build
